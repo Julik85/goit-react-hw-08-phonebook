@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
-export const ContactForm = ({ handleSubmit }) => {
+export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const ContactForm = ({ handleSubmit }) => {
     if (contactsList.findIndex(contact =>name === contact.name) !== -1) {
       alert (`${name} is already in contacts.`);
     } else {
-      dispatch(addContact({name: name, phone: number}));
+      dispatch(addContact({name, number }));
     }
     form.reset();
   };
@@ -46,7 +46,7 @@ export const ContactForm = ({ handleSubmit }) => {
         value={name}
         onChange={handleChangeName}
       />
-      <label className={css.formLabel}>Number </label>
+      <label className={css.formLabel}>Number
       <input
         className={css.formNumber}
         type="tel"
@@ -58,6 +58,7 @@ export const ContactForm = ({ handleSubmit }) => {
         value={number}
         onChange={handleChangeNumber}
       />
+       </label>
       <button className={css.formBtn} type="submit">
         Add contact
       </button>
