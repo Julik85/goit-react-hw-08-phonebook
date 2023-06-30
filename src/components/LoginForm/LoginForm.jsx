@@ -5,9 +5,9 @@ import { logIn } from 'redux/auth/operations';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    const form = event.currentTarget;
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
     dispatch(
       logIn({
         email: form.elements.email.value,
@@ -19,24 +19,25 @@ export const LoginForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <lable className={css.lable}>
+      <label className={css.label}>
         Email
         <input
-          className={css.lable}
+          className={css.label}
           type="email"
           name="email"
           placeholder="Enter email"
         />
-      </lable>
-      <lable className={css.lable}>
+      </label>
+      <label className={css.label}>
         Password
         <input
-          className={css.lable}
+          className={css.label}
           type="password"
           name="password"
           placeholder="Enter password"
         />
-      </lable>
+      </label>
+
       <button className={css.formBtn} type="submit">
         Log In
       </button>

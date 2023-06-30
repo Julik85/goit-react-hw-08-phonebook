@@ -8,23 +8,22 @@ import { setFilter } from 'redux/contacts/filterSlice';
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
-  
-  
-  const handleChange = event => {
-    dispatch(setFilter(event.target.value));
-  };
-return ( 
-  <div>
-    <label className={css.filterLabel}>Find contacts by Name </label>
-    <input
-      className={css.filterName}
-      type="text"
-      name="filter"
-      placeholder="Enter filter"
-      value={filter}
-      onChange={handleChange}
-    />
-  </div>
-);
-}
 
+  const handleChange = e => {
+    dispatch(setFilter(e.target.value));
+  };
+
+  return (
+    <div>
+      <label className={css.filterLabel}>Find contacts by Name </label>
+      <input
+        className={css.filterName}
+        type="text"
+        name="filter"
+        placeholder="Enter filter"
+        value={filter}
+        onChange={handleChange}
+      />
+    </div>
+  );
+};

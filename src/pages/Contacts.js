@@ -8,25 +8,23 @@ import { fetchContacts } from "redux/contacts/operations";
 import { getIsLoading } from "redux/contacts/selectors";
 
 
-export default function Contacts () {
-    const dispatch = useDispatch();
-    const isLoading = useSelector(getIsLoading);
+export default function Contacts() {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
 
-    useEffect(() => {
-        dispatch(fetchContacts());
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
-    return (
-        <>
-        <Helmet>
-            <title>Phonebook</title>
-        </Helmet>
-        <ContactForm />
-        <div>
-            {isLoading && 'Recuest in progress...'}
-        </div>
-        <Filter />
-        <ContactList />
-        </>
-    )
+  return (
+    <>
+      <Helmet>
+        <title>Phonebook</title>
+      </Helmet>
+      <ContactForm />
+      <div>{isLoading && 'Request in progress...'}</div>
+      <Filter />
+      <ContactList />
+    </>
+  );
 }
