@@ -3,6 +3,7 @@
     flex-direction: column;
   }
   
+  .formLabel,
   .formName,
   .formNumber {
     display: flex;
